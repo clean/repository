@@ -13,6 +13,11 @@ class CacheDecorator extends AbstractRepository
     protected $repository;
 
     /**
+     * @var integer TTL value for cache in seconds
+     */
+    protected $ttl;
+
+    /**
      * Constructs CacheDecorator object
      *
      * @param CacheAdapterInterface $cache cache
