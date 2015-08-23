@@ -12,8 +12,6 @@ class Metaphore implements CacheAdapterInterface
 
     /**
      * @param Cache $backend
-     *
-     * @return void
      */
     public function __construct(Cache $backend)
     {
