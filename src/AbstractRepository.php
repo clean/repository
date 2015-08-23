@@ -72,9 +72,13 @@ abstract class AbstractRepository
     }
 
     /**
+     * Returns array of criterias used by repository
+     *
+     * @param AbstractRepository $repository repository
+     *
      * @returns array of criteria objects
      */
-    protected function collectCriteria(Repository $repository)
+    protected function collectCriteria(AbstractRepository $repository)
     {
         $result = array();
         foreach ($repository->criteria as $key => $criteria) {
