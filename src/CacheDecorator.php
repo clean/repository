@@ -13,9 +13,10 @@ class CacheDecorator extends AbstractRepository
     protected $repository;
 
     /**
-     * @param $adapter adapter
-     * @param AbstractRepository $repository
-     * @return void
+     * Constructs CacheDecorator object
+     *
+     * @param CacheAdapterInterface $cache cache
+     * @param AbstractRepository $repository repository
      */
     public function __construct(CacheAdapterInterface $cache, AbstractRepository $repository)
     {
