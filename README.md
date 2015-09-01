@@ -30,16 +30,16 @@ Repository is and object that holds multiply criterias. Those criteria can repre
 /*
    get 
    4 'toyota' cars,
-   not older then 10 year,
-   only with disel engine,
+   not older than 10 year,
+   only with diesel engine,
    with information about last 2 owners,
    include pictures of car
 */
 $carRepository
     ->limit(4)
     ->filterByMark('toyota')
-    ->notOlderThen(10)
-    ->onlyDisel()
+    ->notOlderThan(10)
+    ->onlyDiesel()
     ->includeOwners([
         'getLatest' => 2,
     ])
@@ -53,4 +53,4 @@ There are few rules worth to follow:
 * when you need to sort result use `sortBy...` method
 * when you need to extend result use `with...` method
 * when you need to include related entity use `include...` method
-* you can also define your own rules valid for your project like `notOlderThen`
+* you can also define your own rules valid for your project like `notOlderThan`
