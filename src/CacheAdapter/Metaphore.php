@@ -13,9 +13,10 @@ class Metaphore implements CacheAdapterInterface
     /**
      * @param Cache $backend
      */
-    public function __construct(Cache $backend)
+    public function __construct(Cache $backend, $prefix = '')
     {
         $this->backend = $backend;
+        $this->prefix = $prefix;
     }
 
     /**
@@ -23,6 +24,6 @@ class Metaphore implements CacheAdapterInterface
      */
     public function cache($key, callable $callable, $ttl)
     {
-        return $this->backend->cache($key, $callable, $ttl);
+        return $this->backend->cache($this->prefix.$key, $callable, $ttl);
     }
 }
