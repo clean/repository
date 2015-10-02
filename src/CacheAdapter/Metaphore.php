@@ -11,7 +11,13 @@ class Metaphore implements CacheAdapterInterface
     private $backend;
 
     /**
+     * @var string cache key prefix
+     */
+    private $prefix;
+
+    /**
      * @param Cache $backend
+     * @param string $prefix Cache key prefix
      */
     public function __construct(Cache $backend, $prefix = '')
     {
