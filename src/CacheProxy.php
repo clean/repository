@@ -1,6 +1,6 @@
 <?php namespace Clean\Repository;
 
-class CacheDecorator extends AbstractRepository
+class CacheProxy extends AbstractRepository
 {
     /**
      * @var CacheAdapterInterface
@@ -18,7 +18,7 @@ class CacheDecorator extends AbstractRepository
     protected $ttl;
 
     /**
-     * Constructs CacheDecorator object
+     * Constructs CacheProxy object
      *
      * @param CacheAdapterInterface $cache cache
      * @param AbstractRepository $repository repository
