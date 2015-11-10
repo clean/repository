@@ -57,8 +57,29 @@ class CacheProxy extends AbstractRepository
         );
     }
 
+    /**
+     * Returns hash string generated based on current repository state
+     * 
+     * @return string
+     */
     public function getHash()
     {
         return $this->repository->getHash();
+    }
+
+    /**
+     * Invoke method from inside injected repository
+     * 
+     * @param string $method Name of the injected repository method being called
+     * @param array $args Enumerated array with parameters passed to the $name'ed method
+     * 
+     * @return self
+     */
+    public function __call($name, $args)
+    {
+        if (false === call_user_func_array([$this->repository, $name], $args)) {
+            throw new \RuntimeException('Method call failed');
+        }
+        return $this;
     }
 }
