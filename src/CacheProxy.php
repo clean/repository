@@ -82,4 +82,14 @@ class CacheProxy extends AbstractRepository
         }
         return $this;
     }
+
+    /**
+     * Returns instance of injected repository
+     * 
+     * @return AbstractRepository
+     */
+    public function getRepository()
+    {
+        return $this->repository;
+    }
 }
