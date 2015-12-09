@@ -92,4 +92,15 @@ class CacheProxy extends AbstractRepository
     {
         return $this->repository;
     }
+
+   /**
+    * Magic clone method
+    * When cloning object, make also a clone of $this->repository
+    *
+    * @return void
+    */
+    public function __clone()
+    {
+        $this->repository = clone $this->repository;
+    }
 }
