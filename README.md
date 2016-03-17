@@ -1,8 +1,9 @@
 # Clean\Repository
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/clean/repository/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/clean/repository/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/clean/repository/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/clean/repository/?branch=master)
 [![Build Status](https://travis-ci.org/clean/repository.svg?branch=master)](https://travis-ci.org/clean/repository)
+[![Code Climate](https://codeclimate.com/github/clean/repository/badges/gpa.svg)](https://codeclimate.com/github/clean/repository)
+[![Test Coverage](https://codeclimate.com/github/clean/repository/badges/coverage.svg)](https://codeclimate.com/github/clean/repository/coverage)
+[![Issue Count](https://codeclimate.com/github/clean/repository/badges/issue_count.svg)](https://codeclimate.com/github/clean/repository)
 
 Use a repository to separate the logic that retrieves the data and maps it to the entity model from the business logic that acts on the model. The business logic should be agnostic to the type of data that comprises the data source layer. For example, the data source layer can be a database or a Web service.
 

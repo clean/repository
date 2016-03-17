@@ -3,15 +3,19 @@ php:
   - 5.5
   - 5.6
 
+addons:
+  code_climate:
+    repo_token: 4f0b1117a1a8f9e880d4878ff4ee2be0066baaad59a6d18f68ba449898265fc7
+
 install:
-  - composer self-update
-  - composer install -n
+  - composer install
 
 before_script:
   - mkdir -p build/logs
 
 script:
-  - ./vendor/bin/phpunit --coverage-clover ./build/logs/clover.xml
+  - ./vendor/bin/phpunit
 
 after_script:
-  - then php vendor/bin/ocular code-coverage:upload --format=php-clover ./build/logs/clover.xml
+  - ./vendor/bin/test-reporter
+
