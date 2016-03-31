@@ -4,8 +4,20 @@ abstract class AbstractRepository
 {
     protected $criteria = [];
 
+    /**
+     * Process data collection
+     * 
+     * 
+     * @return mixed
+     */
     abstract public function assemble();
 
+    /**
+     * Returns unique hash based on current repository state
+     * 
+     * 
+     * @return string
+     */
     abstract public function getHash();
 
     /**
@@ -14,7 +26,7 @@ abstract class AbstractRepository
      * @param string $criteriaName Name of criteria to be set
      * @param mixed $criteria
      *
-     * @return void
+     * @return self
      */
     public function setCriteria($criteriaName, $criteria)
     {
@@ -27,11 +39,12 @@ abstract class AbstractRepository
      *
      * @param mixed $criteria criteria
      *
-     * @return void
+     * @return self
      */
     public function setBaseCriteria($criteria)
     {
-        return $this->setCriteria('base', $criteria);
+        $this->setCriteria('base', $criteria);
+        return $this;
     }
 
     /**
@@ -49,18 +62,32 @@ abstract class AbstractRepository
      *
      * @param string $name Name of the criteria to check
      *
-     * @return void
+     * @return bool
      */
     protected function hasCriteria($name)
     {
         return isset($this->criteria[$name]);
     }
 
+    /**
+     * Returns criteria by name or false otherwise
+     * 
+     * @param string $name name 
+     * 
+     * @return mixed
+     */
     protected function getCriteria($name)
     {
         return isset($this->criteria[$name]) ? $this->criteria[$name] : false;
     }
 
+    /**
+     * Invoke methods provided in associative array
+     *
+     * @param array $params params 
+     * 
+     * @return self
+     */
     protected function invoke($params)
     {
         if ($params) {
