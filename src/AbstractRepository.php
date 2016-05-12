@@ -99,7 +99,7 @@ abstract class AbstractRepository
     }
 
     /**
-     * Returns array of criterias used by repository
+     * Returns array of criterias used by repository recursively
      *
      * @param AbstractRepository $repository repository
      *

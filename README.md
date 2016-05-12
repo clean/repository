@@ -55,3 +55,7 @@ There are few rules worth to follow:
 * when you need to extend result use `with...` method
 * when you need to include related entity use `include...` method
 * you can also define your own rules valid for your project like `notOlderThan`
+
+## Working example:
+
+* [Chinook database repository example](example/chinook)

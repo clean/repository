@@ -6,7 +6,11 @@
     "license": "MIT",
     "require-dev": {
         "phpunit/phpunit": "4.2.*",
-        "codeclimate/php-test-reporter": "dev-master"
+        "clean/data": "2.2.0",
+        "aura/sql": "2.5.0",
+        "aura/sqlquery": "2.6.0",
+        "codeclimate/php-test-reporter": "dev-master",
+        "romannowicki/mpr": "dev-master"
     },
     "archive": {
         "exclude": ["/example"]
@@ -17,6 +21,11 @@
     "autoload": {
         "psr-4": {
             "Clean\\Repository\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Example\\Chinook\\": "example/chinook"
         }
     },
     "scripts": {
