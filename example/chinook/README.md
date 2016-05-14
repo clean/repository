@@ -1,6 +1,6 @@
 # Chinook Database Repository Example
 
-https://chinookdatabase.codeplex.com/
+http://www.sqlitetutorial.net/sqlite-sample-database/
 
 Implementation of repository for chinook sample database to show how to approach to coding of repository pattern for RDBMS database.
 The whole idea is to have ORM like query model with full controll over statement execution and data hydration.
