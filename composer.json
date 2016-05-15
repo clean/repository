@@ -10,7 +10,8 @@
         "aura/sql": "2.5.0",
         "aura/sqlquery": "2.6.0",
         "codeclimate/php-test-reporter": "dev-master",
-        "romannowicki/mpr": "dev-master"
+        "romannowicki/mpr": "dev-master",
+        "sobstel/metaphore": "1.2.*"
     },
     "archive": {
         "exclude": ["/example"]

@@ -4,6 +4,11 @@ use Example\Chinook\Artists\Repository as ArtistsRepository;
 use Example\Chinook\Albums\Collection as AlbumsCollection;
 use Example\Chinook\Tracks\Collection as TracksCollection;
 
+use Clean\Repository\CacheProxy as CacheProxy;
+use Clean\Repository\CacheAdapter\Metaphore as CacheAdapter;
+use Metaphore\Cache as Cache;
+use Metaphore\Store\MockStore as MockStore;
+
 class TestCase extends \PHPUnit_Framework_TestCase
 {
     public function testGettingArtists()
@@ -108,5 +113,44 @@ class TestCase extends \PHPUnit_Framework_TestCase
         $this->assertFalse($hash1 == $hash2);
         $this->assertFalse($hash2 == $hash3);
         $this->assertFalse($hash3 == $hash1);
+    }
+
+    private function prepareCacheProxy()
+    {
+        $cacheAdapter = new CacheAdapter(new Cache(new MockStore()));
+        $cacheProxy = new CacheProxy($cacheAdapter, new ArtistsRepository);
+        return $cacheProxy;
+    }
+
+    public function testCacheProxyFeature()
+    {
+        $cacheProxy = $this->prepareCacheProxy();
+
+        $this->assertInstanceOf(\Clean\Repository\AbstractRepository::class, $cacheProxy);
+        $this->assertInstanceOf(ArtistsRepository::class, $cacheProxy->getRepository());
+
+        $cacheProxy
+            ->limit(1)
+            ->setTtl(20)
+            ->includeAlbums()
+            ->assemble();
+
+        $this->assertEquals(40, strlen($cacheProxy->getHash()));
+        $this->assertEquals($cacheProxy->getHash(), $cacheProxy->getRepository()->getHash());
+
+        $cacheProxyClone = clone($cacheProxy);
+
+        $this->assertFalse($cacheProxyClone === $cacheProxy);
+        $this->assertFalse($cacheProxyClone->getRepository() === $cacheProxy->getRepository());
+    }
+
+    /**
+     * @expectedException RuntimeException
+     * @expectedExceptionMessage Method call failed
+     */
+    public function testCacheProxyCallingInvalidMethod()
+    {
+        $cacheProxy = $this->prepareCacheProxy();
+        $cacheProxy->hasCriteria('SomeCriteria');
     }
 }

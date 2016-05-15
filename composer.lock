@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ad7084f1446911b22fe1340618b30a47",
-    "content-hash": "95fd8788a372011237ccd62d89578e2e",
+    "hash": "c8ccd18e840e9280e60fcaedc9b8147c",
+    "content-hash": "2801caa6952c43d2c11b8d293dfec270",
     "packages": [],
     "packages-dev": [
         {
@@ -522,20 +522,23 @@
         },
         {
             "name": "phpunit/php-timer",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-timer.git",
-                "reference": "3e82f4e9fc92665fafd9157568e4dcb01d014e5b"
+                "reference": "38e9124049cf1a164f1e4537caf19c99bf1eb260"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/3e82f4e9fc92665fafd9157568e4dcb01d014e5b",
-                "reference": "3e82f4e9fc92665fafd9157568e4dcb01d014e5b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/38e9124049cf1a164f1e4537caf19c99bf1eb260",
+                "reference": "38e9124049cf1a164f1e4537caf19c99bf1eb260",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4|~5"
             },
             "type": "library",
             "autoload": {
@@ -559,7 +562,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2015-06-21 08:01:12"
+            "time": "2016-05-12 18:03:57"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -1181,6 +1184,55 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2015-06-21 13:59:46"
+        },
+        {
+            "name": "sobstel/metaphore",
+            "version": "v1.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sobstel/metaphore.git",
+                "reference": "c1a601da3e11fa824452db5b7735d1011da5f1b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sobstel/metaphore/zipball/c1a601da3e11fa824452db5b7735d1011da5f1b6",
+                "reference": "c1a601da3e11fa824452db5b7735d1011da5f1b6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "suggest": {
+                "predis/predis": "Required for PredisStore"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Metaphore\\Tests\\": "tests/src/",
+                    "Metaphore\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Przemek Sobstel",
+                    "email": "przemek@sobstel.org"
+                }
+            ],
+            "description": "PHP cache slam defense using a semaphore to prevent dogpile effect (aka clobbering updates or stampending herd).",
+            "homepage": "https://github.com/sobstel/metaphore",
+            "keywords": [
+                "cache"
+            ],
+            "time": "2015-11-06 14:56:14"
         },
         {
             "name": "symfony/config",
