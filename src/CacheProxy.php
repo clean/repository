@@ -77,6 +77,10 @@ class CacheProxy extends AbstractRepository
      */
     public function __call($name, $args)
     {
+        if (!method_exists($this->repository, $name)) {
+            throw new \RuntimeException(sprintf("Method %s doesn't exists in %s", $name, get_class($this->repository)));
+        }
+
         if (false === call_user_func_array([$this->repository, $name], $args)) {
             throw new \RuntimeException('Method call failed');
         }

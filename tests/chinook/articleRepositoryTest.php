@@ -148,9 +148,19 @@ class TestCase extends \PHPUnit_Framework_TestCase
      * @expectedException RuntimeException
      * @expectedExceptionMessage Method call failed
      */
-    public function testCacheProxyCallingInvalidMethod()
+    public function testCacheProxyCallingProtectedMethod()
     {
         $cacheProxy = $this->prepareCacheProxy();
         $cacheProxy->hasCriteria('SomeCriteria');
+    }
+
+    /**
+     * @expectedException RuntimeException
+     * @expectedExceptionMessage Method _NonExistingMethod doesn't exists in Example\Chinook\Artists\Repository
+     */
+    public function testCacheProxyCallingNotExistingMethod()
+    {
+        $cacheProxy = $this->prepareCacheProxy();
+        $cacheProxy->_NonExistingMethod();
     }
 }
