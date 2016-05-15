@@ -108,7 +108,7 @@ abstract class AbstractRepository
     protected function collectCriteria(AbstractRepository $repository)
     {
         $result = array();
-        foreach ($repository->criteria as $key => $criteria) {
+        foreach ($repository->criteria as $criteria) {
             if ($criteria instanceof AbstractRepository) {
                 foreach ($this->collectCriteria($criteria) as $items) {
                     $result[] = $items;
