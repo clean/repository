@@ -4,6 +4,10 @@
 [![Code Climate](https://codeclimate.com/github/clean/repository/badges/gpa.svg)](https://codeclimate.com/github/clean/repository)
 [![Test Coverage](https://codeclimate.com/github/clean/repository/badges/coverage.svg)](https://codeclimate.com/github/clean/repository/coverage)
 [![Issue Count](https://codeclimate.com/github/clean/repository/badges/issue_count.svg)](https://codeclimate.com/github/clean/repository)
+[![Latest Stable Version](https://poser.pugx.org/clean/repository/v/stable)](https://packagist.org/packages/clean/repository)
+[![Total Downloads](https://poser.pugx.org/clean/repository/downloads)](https://packagist.org/packages/clean/repository)
+[![License](https://poser.pugx.org/clean/repository/license)](https://packagist.org/packages/clean/repository)
+
 
 Use a repository to separate the logic that retrieves the data and maps it to the entity model from the business logic that acts on the model. The business logic should be agnostic to the type of data that comprises the data source layer. For example, the data source layer can be a database or a Web service.
 
