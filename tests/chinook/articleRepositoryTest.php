@@ -136,12 +136,22 @@ class TestCase extends \PHPUnit_Framework_TestCase
             ->assemble();
 
         $this->assertEquals(40, strlen($cacheProxy->getHash()));
-        $this->assertEquals($cacheProxy->getHash(), $cacheProxy->getRepository()->getHash());
+        $this->assertNotEquals($cacheProxy->getHash(), $cacheProxy->getRepository()->getHash());
 
         $cacheProxyClone = clone($cacheProxy);
 
         $this->assertFalse($cacheProxyClone === $cacheProxy);
         $this->assertFalse($cacheProxyClone->getRepository() === $cacheProxy->getRepository());
+
+        // check if the same repository with different ttl time has different cache key
+        $cacheProxy1 = $this->prepareCacheProxy();
+        $cacheProxy1
+            ->limit(1)
+            ->setTtl(30)
+            ->includeAlbums()
+            ->assemble();
+
+        $this->assertNotEquals($cacheProxy->getHash(), $cacheProxy1->getHash());
     }
 
     /**

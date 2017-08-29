@@ -64,7 +64,7 @@ class CacheProxy extends AbstractRepository
      */
     public function getHash()
     {
-        return $this->repository->getHash();
+        return sha1($this->repository->getHash().$this->ttl);
     }
 
     /**
